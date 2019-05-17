@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="json" namespace="/json" extends="json-default"><!-- 使用ajax无法传递内置变量 -->
+	     <action name="*" class="com.livejq.action.{1}">
+		    <!-- 将返回类型设置为json -->
+		    <result type="json"/>
+	     </action>
+    </package>
+    <package name="book" namespace="/book" extends="struts-default">
+	     <action name="*" class="com.livejq.action.BookAction" method="{1}">
+	     	<!--result 流对象，返回所有图书信息 -->
+		    <result type="stream">
+		    	<param name="inputName">inputStream</param>
+		    	<param name="contentType">application/xml</param>
+		    </result>
+	     </action>
+    </package>
+    <package name="res" namespace="/res" extends="json-default">
+	     <action name="*" class="com.livejq.action.ResourceAction" method="{1}">
+		    <!-- 将返回类型设置为json -->
+		    <result type="json"/>
+	     </action>
+    </package>
+    <package name="download" namespace="/download" extends="struts-default">
+    
+    	<!-- <interceptors>
+	    	<interceptor name="privilege" class="com.livejq.interceptor.PrivilegeInterceptor" />
+	    	<interceptor-stack name="myStack">
+	    		<interceptor-ref name="defaultStack"/>
+	    		<interceptor-ref name="privilege"/>
+	    	</interceptor-stack>
+	    </interceptors> -->
+	    <action name="get" class="com.livejq.action.DownloadAction">
+		    <result type="stream">
+		    	<param name="contentType">${contentType}</param>
+		    	<param name="contentDisposition">attachment;filename=${filename}</param>
+		    	<param name="inputName">downloadFile</param>
+		    	<param name="bufferSize">1024</param>
+		    </result>
+		    <result name="none" type="stream">
+				<param name="contentType">text/html</param>
+		    	<param name="inputName">inputStream</param>
+            </result>
+	    </action>
+    </package>
+</struts>

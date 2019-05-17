@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- <constant name="struts.ui.theme" value="simple"/> -->
+	<package name="ajax" namespace="/ajax" extends="struts-default">
+		<action name="welcome" class="com.livejq.action.WelcomeAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="time" class="com.livejq.action.TimeAction">
+			<result>
+				<param name="location">/time.jsp</param>
+			</result>
+		</action>
+		<action name="autocomplete" class="com.livejq.action.AutocompleteAction" method="initializeList">
+			<result>/welcome.jsp</result>
+			<result name="none">
+				<param name="location">/autocompleter.jsp</param>
+			</result>
+		</action>
+		<action name="auto_submit" class="com.livejq.action.AutocompleteAction">
+			<result>/welcome.jsp</result>
+		</action>
+		<action name="provinces" class="com.livejq.action.CityAction" method="provinces">
+			<result>
+				<param name="location">/provinces.jsp</param>
+			</result>
+		</action>
+		<action name="cities" class="com.livejq.action.CityAction" method="cities">
+			<result>
+				<param name="location">/cities.jsp</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="json" extends="json-default">
+      <action name="jsonAjax" class="com.livejq.action.JsonAction">
+        <!-- 将返回类型设置为json -->
+        <result type="json"></result>
+      </action>
+    </package>
+    <package name="valueStack" namespace="/vs" extends="struts-default">
+      <action name="vsAction" class="com.livejq.action.ValueStackAction">
+        <result>/index.jsp</result>
+      </action>
+    </package>
+    
+    <package name="file" namespace="/file" extends="struts-default">
+    	<action name="fileUploadAction" class="com.livejq.action.FileUploadAction">
+    	<result>/done.jsp</result>
+    	<result name="input">/undone.jsp</result>
+    	<interceptor-ref name="defaultStack">
+    		<param name="fileUpload.maximumSize">10485760</param>
+    		<param name="fileUpload.allowedExtensions">.txt,.doc,.jpg,.png,.mp3</param>
+    		<param name="fileUpload.allowedType">text/plain,application/msword,image/jpeg,audio/mpeg</param>
+    	</interceptor-ref>
+        </action>
+        
+        <action name="downLoad" class="com.livejq.action.DownLoadAction">
+	    	<result type="stream">
+	    		<param name="contentType">${contentType}</param>
+	    		<param name="contentDisposition">attachment;filename=${filename}</param>
+	    		<param name="inputName">downloadFile</param>
+	    		<param name="bufferSize">1024</param>
+	    	</result>
+        </action>
+    </package>
+</struts>

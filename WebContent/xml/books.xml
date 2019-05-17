@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookList>
+	<book>
+		<title>书名</title>
+		<content>内容</content>
+		<pic>images/none.jpg</pic>
+	</book>
+</bookList>
