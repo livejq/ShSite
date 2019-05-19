@@ -73,8 +73,8 @@
             北京大学教授</h3>
         <div class="media-container-row">
             <div class="media-block m-auto" style="width: 49%;">
-                <div class="mbr-figure">
-                    <img src="assets/images/mbr-1024x682.jpg" alt="" title="">
+                <div class="teacher-img">
+                    <img src="" alt="教师图片" title="教师图片">
                 </div>
             </div>
             <div class="cards-block">

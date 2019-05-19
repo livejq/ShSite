@@ -12,6 +12,7 @@ import com.livejq.domain.Message;
 import com.livejq.domain.User;
 import com.livejq.util.ConvertUtils;
 import com.livejq.util.HibernateUtils;
+import com.livejq.util.TokenUtils;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -54,20 +55,26 @@ public class LoginAction extends ActionSupport {
 		Criterion criterion = Restrictions.eq("username", username);
 		criteria.add(criterion);
 		@SuppressWarnings("unchecked")
-		List<User> users = criteria.list();
-		if(users.size() != 0) {
-			Iterator<User> iterator = users.iterator();
+		List<User> uList = criteria.list();
+		if(uList.size() != 0) {
+			Iterator<User> iterator = uList.iterator();
 			while(iterator.hasNext()) {
-				User user = (User)iterator.next();
+				User u = (User)iterator.next();
 				String sha1 = ConvertUtils.getSha1(password);
-				if(sha1.equals(user.getPassword())) {
-					if(user.getAuth().intValue() == 0) {							
+				if(sha1.equals(u.getPassword())) {
+					if(u.getAuth().intValue() == 0) {							
 						msg.setText("登录成功！");
 						msg.setStatus(1);
 						msg.setUsername(username);
 					}else {
 						msg.setText("登录成功！");
 						msg.setStatus(1);
+						String str = TokenUtils.getStr();
+						String token = TokenUtils.getToken(str, 30);
+						context.getSession().put("username", username);
+						context.getSession().put("token", token);
+						msg.setToken(token);
+						msg.setUsername(username);
 					}
 					context.getSession().put("username", username);
 				}else {

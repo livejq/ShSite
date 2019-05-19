@@ -44,18 +44,31 @@ function doLogin() {
 						    var t = 2;
 						    var point = '. ';
 						    var buffer = new StringBuffer();
-						    sessionStorage.username = value.username;
-							sign.innerHTML = value.username;
-						    var timer = setInterval(function (){
-						    	if(t == 0) {
-									clearInterval(timer);									
-									window.location.href = "teacher.jsp";
-						    	}
-						    	buffer.append(point);
-						    	var result = buffer.toString();
-						    	msg.innerHTML = value.text + ' ' + result;
-						    	t--;
-							}, 1000);
+						    if(value.status == null) {
+						    	sessionStorage.username = value.username;
+								sign.innerHTML = value.username;
+							    var timer = setInterval(function (){
+							    	if(t == 0) {
+										clearInterval(timer);									
+										window.location.href = "teacher.jsp";
+							    	}
+							    	buffer.append(point);
+							    	var result = buffer.toString();
+							    	msg.innerHTML = value.text + ' ' + result;
+							    	t--;
+								}, 1000);
+						    }else {
+							    var timer = setInterval(function (){
+							    	if(t == 0) {
+										clearInterval(timer);									
+										window.location.href = "/ssh_demo/admin/login?username=" + value.username + "&token=" + value.token;
+							    	}
+							    	buffer.append(point);
+							    	var result = buffer.toString();
+							    	msg.innerHTML = value.text + ' ' + result;
+							    	t--;
+								}, 1000);
+						    }
 						    
 					  	}else if(value.status == 2) {
 				  			$('#msg').removeAttr('hidden');					  	

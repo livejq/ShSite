@@ -70,13 +70,12 @@ $(document).ready(function(){
 	function renderData(dataList) {
 		var list = document.getElementById("dataList");
 		var length = dataList.length;
-		
 		var str = '';
+		var isIE = true;
+		// if(+[1,])isIE = false; +为将1，转为数值,ie是不能转的，NaN;而其他浏览器会忽略，逗号,所以能转为数字1(高版本的ie可以忽略了。。。)
 		for(var i=0; i < length; i++) {
 			dataList[i].url = encodeURI(dataList[i].url);
-			str += `
-   <tr><td class="body-item mbr-fonts-style display-7">${dataList[i].id}</td><td class="body-item mbr-fonts-style display-7">${dataList[i].title}</td><td class="body-item mbr-fonts-style display-7">${dataList[i].author}</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td></tr>
-			`
+			str += '<tr><td class="body-item mbr-fonts-style display-7">${dataList[i].id}</td><td class="body-item mbr-fonts-style display-7">${dataList[i].title}</td><td class="body-item mbr-fonts-style display-7">${dataList[i].author}</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td></tr>';
 		}
 		
 		list.innerHTML = str;

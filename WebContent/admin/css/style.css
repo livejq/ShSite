@@ -1,0 +1,343 @@
+@charset "UTF-8";
+/*整体布局*/
+* {
+	padding:0;
+	margin:0;
+}
+body {
+	background: url('../images/bg.jpg') no-repeat fixed center;
+}
+a {
+	text-decoration: none;
+}
+
+/*顶部布局*/
+#header {
+	height: 120px;
+	background-color: #1E2933;
+}
+
+#header img {
+	margin-top: 6px;
+	margin-left: 55px;
+	cursor: pointer;
+}
+
+#header a {
+	background-color: #67b626;
+	display: inline;
+	position: absolute;
+	right: 6%;
+	top: 70px;
+	cursor: pointer;
+    color: #4d4d4d!important;
+    font-weight: bold;
+    padding: .4em .75em .35em;
+    white-space: nowrap;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
+	border-radius: 6px;
+	border:1px solid white;
+}
+
+#header a:hover {
+	background-color: #C92027;
+	color: white!important;
+}
+
+#header span {
+	display: inline;
+	position: absolute;
+	right: 17%;
+	top: 76px;
+	color: white;
+	font-weight: bold;
+	text-shadow: 2px 2px 2px rgba(255,255,255,0.7);
+}
+
+/*浮动功能栏布局*/
+#float-aside {
+	position: absolute;
+	top: 142px;
+	left: -190px;
+	width: 220px;
+	height: 500px;
+}
+
+aside {
+	position: absolute;
+	display: inline-block;
+	width: 190px;
+	height: 490px;
+	margin-top: 8px;
+	background-color: #1E4151;
+	border-radius: 4px;
+	border-top: 2px solid white;
+	border-bottom: 2px solid white;
+	border-right: 2px solid white;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+/*功能列表*/
+aside ul li a {
+	color: #00cc00;
+}
+
+#click-show {
+	width: 100%;
+	margin-top: auto;
+}
+
+#click-show h5 {
+	height: 30px;
+	line-height: 25px;
+	padding: 15px;
+	font-size: 17px;
+	border-bottom: 0.1px solid burlywood;
+	font-weight: normal;
+	color: #35c475;
+	text-align: center;
+	font-family: sans-serif;
+	cursor: pointer;
+}
+
+#click-show ul {
+	display:none;
+	overflow: hidden;
+	background-color: rgb(39, 84, 105);
+}
+
+#click-show li {
+	height: 30px;
+	line-height: 25px;
+	padding: 8px;
+	font-size: 14px;
+	border-bottom: 0.1px solid burlywood;
+	font-weight: normal;
+	color: #35c475;
+	text-align: center;
+	font-family: sans-serif;
+	cursor: pointer;
+}
+
+#click-show a {
+	display: block;
+	line-height: 25px;
+	padding-left: 28px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #b1d31a;
+	opacity: 0.6;
+}
+
+#click-show a:hover {
+	opacity: 1.0;
+}
+
+/*隐藏按钮*/
+.auto-hidden a {
+	position: absolute;
+	display: inline-block;
+	width: 8px;
+	height: 60px;
+	cursor: pointer;
+	left: 190px;
+	top: 150px;
+	color: #4d4d4d!important;
+	background-color: #f3f5f2;
+	opacity: 0.3;
+    font-weight: normal;
+	padding: 10px;
+    white-space: nowrap;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border:1px solid white;
+}
+
+.auto-hidden a:hover {
+	background-color: #f3f5f2;
+	opacity: 0.5;
+}
+
+/*内容栏整体布局*/
+#content {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+#content .active {
+	display: block;
+	height: 500px;
+	margin: 0px auto;
+	border: 1px solid white;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	overflow: auto;
+	box-shadow: 0 0 2px #dddddd;
+}
+
+table {
+	width: 100%;
+	margin: 0 auto;
+}
+
+/*用户列表布局*/
+#des-title {
+	height: 50px;
+	background-color: #c7a433;
+	border-top: 2px solid white;
+	border-left: 2px solid white;
+	border-right: 2px solid white;
+}
+
+#des-title h4 {
+	display: inline-block;
+	width: 70px;
+	margin-left: 10px;
+	padding: 6px;
+	font-size: 16px;
+	font-weight: 400px;
+}
+
+/*添加用户按钮*/
+
+#des-title a {
+	display: inline-block;
+	cursor: pointer;
+	background-color: #26b65d;
+	color: white;
+	font-weight: normal;
+	padding: .2em .65em .25em;
+	margin-left: 20px;
+	margin-top: 8px;
+	white-space: nowrap;
+	text-shadow: 1px 1px 1px rgba(160, 149, 149, 0.3);
+	border-radius: 6px;
+	border:1px solid white;
+	opacity: 0.8;
+}
+
+#des-title a:hover {
+	opacity: 1.0;
+}
+
+/*table表格*/
+thead tr {
+	width: 100%;
+	margin:0px auto;
+	text-align: center;
+}
+
+thead tr th {
+	width: 500px;
+	color: rgb(27, 26, 26);
+	font-size: 20px;
+	font-weight: 500px;
+	border: 1px solid white;
+	padding: 15px;
+}
+
+.dataList tr {
+	width: 100%;
+	margin:0px auto;
+	text-align: center;
+}
+
+.dataList tr td {
+	width: 500px;
+	color: white;
+	font-size: 16px;
+	font-weight: normal;
+	border: 1px solid white;
+	padding: 5px;
+}
+
+/*删除按钮*/
+#user table a {
+	background-color: #26b65d;
+	display: inline;
+	cursor: pointer;
+	color: white;
+	font-weight: normal;
+	padding: .1em .75em .15em;
+	white-space: nowrap;
+	text-shadow: 1px 1px 1px rgba(160, 149, 149, 0.3);
+	border-radius: 6px;
+	border:1px solid white;
+}
+
+#user table a:hover {
+	background-color: rgb(206, 159, 29);
+	color: black!important;
+}
+
+/*首页内容修改*/
+#index {
+	width: 100%;
+	height: 300px;
+	margin: 0px auto;
+	border: 1px solid white;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	overflow: auto;
+	box-shadow: 0 0 2px #dddddd;
+}
+
+#index textarea {
+	width: 99%;
+	height: 220px;
+	font: 15px sans-serif;
+	border-radius: 2px;
+	resize: none;
+	padding: 15px;
+	text-indent: 2em;
+}
+
+/*参考图书*/
+#book {
+	height: 550px;
+	margin: 0px auto;
+	border: 1px solid white;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	overflow: auto;
+	box-shadow: 0 0 2px #fdfafa;
+}
+
+#book textarea {
+	width: 96%;
+	height: 180px;
+	font: 16px sans-serif;
+	font-weight: 200;
+	border-radius: 2px;
+	resize: none;
+	word-wrap: none;
+	padding: 10px;
+	text-indent: 2em;
+}
+
+#book tbody td {
+	height: 170px;
+}
+#book .head-item1 {
+	width: 8%;
+}
+
+#book .head-item2 {
+	width: 10%;
+}
+
+#book .head-item3 {
+	width: 25%;
+}
+
+#book .head-item4 {
+	width: 49%;
+}
+
+#book .head-item5 {
+	width: 8%;
+}
