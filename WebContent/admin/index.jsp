@@ -75,22 +75,39 @@
 				</table>
 		</div>
 		<div id="index" style="display: none">
-				<div id="des-title"><h4>首页管理</h4><a href="#">确认修改</a></div>
-				<textarea name="theme"></textarea>
+				<div id="des-title"><h4>首页管理</h4><a href="javascript:void(0)" id="index-modify">确认修改</a></div>
+				<textarea name="theme" id="textarea-index"><s:property value="content"/></textarea>
 	  </div>
 	  <div id="teacher" style="display: none">
-			<div id="des-title"><h4>教师信息</h4><a href="#">确认修改</a></div>
+			<div id="des-title"><h4>教师信息</h4><a href="javascript:void(0)" id="teacher-modify">修改信息</a></div>
 				<table class="table" cellspacing="0">
             <tbody class="dataList">
-							<tr><td class="body-item mbr-fonts-style display-7">教师姓名:</td><td class="body-item mbr-fonts-style display-7"><input type="text" name="name"></td></tr>
-							<tr><td class="body-item mbr-fonts-style display-7">职位:</td><td class="body-item mbr-fonts-style display-7"><input type="text" name="degree"></td></tr>
-							<tr><td class="body-item mbr-fonts-style display-7">研究方向:</td><td class="body-item mbr-fonts-style display-7"><input type="text" name="research"></td></tr>
-							<tr><td class="body-item mbr-fonts-style display-7">简介:</td><td class="body-item mbr-fonts-style display-7"><input type="text" name="introduce"></td></tr>
-							<tr><td class="body-item mbr-fonts-style display-7">主要成就:</td><td class="body-item mbr-fonts-style display-7"><input type="text" name="achieve"></td></tr>
-							<tr><td class="body-item mbr-fonts-style display-7">邮箱:</td><td class="body-item mbr-fonts-style display-7"><input type="text" name="contact"></td></tr>
-							<tr><td class="body-item mbr-fonts-style display-7">照片:</td><td class="body-item mbr-fonts-style display-7"><input type="file" name="file"></td></tr>
+            			<s:iterator value="teachers" var="t">
+							<tr><td class="body-item mbr-fonts-style display-7">教师姓名:</td><td class="body-item mbr-fonts-style display-7"><span><s:property value="#t.name"/></span></td></tr>
+							<tr><td class="body-item mbr-fonts-style display-7">职位:</td><td class="body-item mbr-fonts-style display-7"><span><s:property value="#t.degree"/></span></td></tr>
+							<tr><td class="body-item mbr-fonts-style display-7">研究方向:</td><td class="body-item mbr-fonts-style display-7"><span><s:property value="#t.research"/></span></td></tr>
+							<tr><td class="body-item mbr-fonts-style display-7">简介:</td><td class="body-item mbr-fonts-style display-7"><span><s:property value="#t.introduce"/></span></td></tr>
+							<tr><td class="body-item mbr-fonts-style display-7">主要成就:</td><td class="body-item mbr-fonts-style display-7"><span><s:property value="#t.achieve"/></span></td></tr>
+							<tr><td class="body-item mbr-fonts-style display-7">邮箱:</td><td class="body-item mbr-fonts-style display-7"><span><s:property value="#t.contact"/></span></td></tr>
+							<tr><td class="body-item mbr-fonts-style display-7">照片:</td><td class="body-item mbr-fonts-style display-7"><img src="../<s:property value="#t.pic"/>" alt="教师图片"></td></tr>
+						</s:iterator>
 						</tbody>
 				</table>
+	  </div>
+	  <div id="showTeaMsg" style="display: none">
+			<div id="des-title"><h4>修改信息</h4><a href="javascript:void(0)" id="teacher-confirm">确认修改</a></div>
+			<table class="table" cellspacing="0">
+            	<tbody class="dataList">
+            	<input type="hidden" name="id" value="1"/>
+							<tr><td class="body-item mbr-fonts-style display-7">教师姓名:</td><td class="body-item mbr-fonts-style display-7"><input type="text" name="name" id="teaName"></td></tr>
+							<tr><td class="body-item mbr-fonts-style display-7">职位:</td><td class="body-item mbr-fonts-style display-7"><input type="text" name="degree" id="teaDegree"></td></tr>
+							<tr><td class="body-item mbr-fonts-style display-7">研究方向:</td><td class="body-item mbr-fonts-style display-7"><input type="text" name="research" id="teaResearch"></td></tr>
+							<tr><td class="body-item mbr-fonts-style display-7">简介:</td><td class="body-item mbr-fonts-style display-7"><input type="text" name="introduce" id="teaIntroduce"></td></tr>
+							<tr><td class="body-item mbr-fonts-style display-7">主要成就:</td><td class="body-item mbr-fonts-style display-7"><input type="text" name="achieve" id="teaAchieve"></td></tr>
+							<tr><td class="body-item mbr-fonts-style display-7">邮箱:</td><td class="body-item mbr-fonts-style display-7"><input type="text" name="contact" id="teaContact"></td></tr>
+							<tr><td class="body-item mbr-fonts-style display-7">照片:</td><td class="body-item mbr-fonts-style display-7"><div id="upload-whole"><input type="file" name="file" accept=".jpg,.png" id="teaImg"><div class="box"><div class="tbox" style="display:none;"><div class="tiao"></div></div></div></div></td></tr>
+				</tbody>
+			</table>
 	  </div>
 	  <div id="resource" style="display:none">
 				<div id="des-title"><h4>课件列表</h4><a href="#" id="add-resource-func">添加课件</a></div>
@@ -101,31 +118,10 @@
 												发布时间</th><th class="head-item mbr-fonts-style display-7">
 												下载查看</th><th class="head-item mbr-fonts-style display-7">操作</th></tr>
 							</thead><tbody class="dataList">
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">2019-05-19 11:58:40</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
-							</tbody>
+							<s:iterator value="resources" var="r">
+									<tr><td class="body-item mbr-fonts-style display-7"><s:property value="#r.id"/></td><td class="body-item mbr-fonts-style display-7"><s:property value="#r.title"/></td><td class="body-item mbr-fonts-style display-7"><s:property value="#r.date"/></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">删除</a></td></tr>
+							</s:iterator>
+									</tbody>
 				</table>
 		</div>
 		<div id="book" style="display: none">
@@ -136,12 +132,15 @@
 												编号</th><th class="head-item2">书名</th><th class="head-item3">
 												图片</th><th class="head-item4">简介</th><th class="head-item5">操作</th></tr>
 							</thead><tbody class="dataList">
-									<tr><td class="body-item mbr-fonts-style display-7">1</td><td class="body-item mbr-fonts-style display-7">spring boot</td><td class="body-item mbr-fonts-style display-7">xxx.png</td><td class="body-item mbr-fonts-style display-7"><textarea name="theme">温恩二二二无付付付付热玩儿若若若若若若若若若若若戊二醛惹我日而为今日日晚间偶然我我认为ore荣 人为人儿文呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃</textarea></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">修改</a>&nbsp;&nbsp;<a href="javascript:void(0)" class="delete">删除</a></td></tr>
+								<s:iterator value="books" var="b">
+									<tr><td class="body-item mbr-fonts-style display-7"><s:property value="#b.id"/></td><td class="body-item mbr-fonts-style display-7"><s:property value="#b.title"/></td><td class="body-item mbr-fonts-style display-7"><img src="../<s:property value="#b.pic" />" alt="加载中..."/></td><td class="body-item mbr-fonts-style display-7"><textarea name="theme"><s:property value="#b.content"/></textarea></td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="delete">修改</a>&nbsp;&nbsp;<a href="javascript:void(0)" class="delete">删除</a></td></tr>
+								</s:iterator>	
 									</tbody>
 				</table>
 			</div>
 	</div>
 	<script src="jquery/jquery-3.4.0.min.js" ></script>
+	<script src="jquery/jquery.js" ></script>
   <script src="js/backstage.js" ></script>
  </body>
 </html>

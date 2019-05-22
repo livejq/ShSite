@@ -14,5 +14,7 @@
 		<mapping resource="com/livejq/domain/User.hbm.xml"/>
 		<mapping resource="com/livejq/domain/Book.hbm.xml"/>
 		<mapping resource="com/livejq/domain/Resource.hbm.xml"/>
+		<mapping resource="com/livejq/domain/Theme.hbm.xml"/>
+		<mapping resource="com/livejq/domain/Teacher.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

@@ -74,7 +74,7 @@
         <div class="media-container-row">
             <div class="media-block m-auto" style="width: 49%;">
                 <div class="teacher-img">
-                    <img src="" alt="教师图片" title="教师图片">
+                    <img src="" alt="教师图片" title="教师图片" style="width: 700px;height: 500px;">
                 </div>
             </div>
             <div class="cards-block">
@@ -89,7 +89,7 @@
                             <div class="card-text">
                                 <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">研究方向</h4>
                                 <p class="mbr-content-text mbr-fonts-style display-7">
-                                    软件工程</p>
+                                    </p>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                             <div class="card-text">
                                 <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">简介</h4>
                                 <p class="mbr-content-text mbr-fonts-style display-7">
-                                    软件工程 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                             <div class="card-text">
                                 <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">学术成就</h4>
                                 <p class="mbr-content-text mbr-fonts-style display-7">
-                                        软件工程</p>
+                                        </p>
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                                 <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">
                                     联系方式</h4>
                                 <p class="mbr-content-text mbr-fonts-style display-7">
-                                        QQ邮箱：xxxqq.com</p>
+                                        邮箱：</p>
                             </div>
                         </div>
                     </div>

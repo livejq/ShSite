@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>    
 <!DOCTYPE html>
 <html  >
 <head>
@@ -72,9 +73,9 @@
             <div class="mbr-white col-lg-8 col-md-7 content-container">
                 <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">
                     课程介绍</h1>
-                <p class="mbr-text pb-3 mbr-fonts-style display-5" style="text-indent:2em;text-align:left">
-				软件工程是一门研究用工程化方法构建和维护有效的、实用的和高质量的软件的学科。它涉及程序设计语言、数据库、软件开发工具、系统平台、标准、设计模式等方面。
-				在现代社会中，软件应用于多个方面。典型的软件有电子邮件、嵌入式系统、人机界面、办公套件、操作系统、编译器、数据库、游戏等。同时，各个行业几乎都有计算机软件的应用，如工业、农业、银行、航空、政府部门等。这些应用促进了经济和社会的发展，也提高了工作效率和生活效率。</p>
+                <p class="mbr-text pb-3 mbr-fonts-style display-5" style="text-indent:2em;text-align:left" id="theme-txt">
+                <s:property value="content"/>
+				</p>
             </div>
             <div class="col-lg-4 col-md-5">
                 <div class="form-container">

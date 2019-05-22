@@ -19,6 +19,10 @@ public class ResourceAction extends ActionSupport {
 		return resource;
 	}
 
+	/**
+	 * 获取数据库中的电子书信息
+	 * @return
+	 */
 	public String get() {
 		Session session = HibernateUtils.getSession();
 		String hql = "from Resource";
@@ -26,7 +30,9 @@ public class ResourceAction extends ActionSupport {
 		@SuppressWarnings("unchecked")
 		List<Resource> res = query.list();
 		resource = res;
+		session.close();
 		
+		System.out.println("正在查询相关书籍资料......");
 		return SUCCESS;
 	}
 }

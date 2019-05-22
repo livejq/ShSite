@@ -47,6 +47,9 @@ public class LoginAction extends ActionSupport {
 		this.password = password;
 	}
 	
+	/**
+	 * 根据客户端中用户输入的用户名和密码的正确与否，适当给出提示，与用户交互
+	 */
 	public String execute() {
 				
 		ActionContext context = ActionContext.getContext();
@@ -56,6 +59,7 @@ public class LoginAction extends ActionSupport {
 		criteria.add(criterion);
 		@SuppressWarnings("unchecked")
 		List<User> uList = criteria.list();
+		session.close();
 		if(uList.size() != 0) {
 			Iterator<User> iterator = uList.iterator();
 			while(iterator.hasNext()) {

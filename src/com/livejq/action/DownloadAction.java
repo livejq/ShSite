@@ -55,7 +55,8 @@ public class DownloadAction extends ActionSupport {
 
 
 	public String execute() throws Exception {
-		
+		System.out.println("客户端请求下载电子书......");
+				
 		return SUCCESS;
 	}
 

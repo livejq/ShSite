@@ -5,7 +5,15 @@ $(document).ready(function(){
 			'method' : 'get',
 			'url' : '/ssh_demo/res/get',
 			'async' : 'false',
-			'dataType' : 'JSON'
+			'dataType' : 'JSON',
+			'success' : function (data) {
+		    	if (JSON.parse(data.responseText)) {
+		    		var jsonObj = JSON.parse(data.responseText);
+		    		renderData(jsonObj['resource']);
+		        }else {
+		        	alert('不是json数据！');
+		        }
+	        }
 	};
 	myAjax(options);
 })
@@ -18,12 +26,7 @@ $(document).ready(function(){
 	    opt.data = opt.data || null;
 	    opt.dataType = opt.dataType || 'JSON'
 	    opt.success = opt.success || function (data) {
-		    	if (opt.dataType === 'JSON') {
-		    		var jsonObj = JSON.parse(data.responseText);
-		    		renderData(jsonObj['resource']);
-		        }else if (opt.dataType === 'XML') {
-		        	alert('XML');
-		        }
+
 	        };
 
 	    var xmlHttp = null;
@@ -75,7 +78,8 @@ $(document).ready(function(){
 		// if(+[1,])isIE = false; +为将1，转为数值,ie是不能转的，NaN;而其他浏览器会忽略，逗号,所以能转为数字1(高版本的ie可以忽略了。。。)
 		for(var i=0; i < length; i++) {
 			dataList[i].url = encodeURI(dataList[i].url);
-			str += '<tr><td class="body-item mbr-fonts-style display-7">${dataList[i].id}</td><td class="body-item mbr-fonts-style display-7">${dataList[i].title}</td><td class="body-item mbr-fonts-style display-7">${dataList[i].author}</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td></tr>';
+			// ie浏览器不认识`这个符号，我只能放弃ie了~
+			str += `<tr><td class="body-item mbr-fonts-style display-7">${dataList[i].id}</td><td class="body-item mbr-fonts-style display-7">${dataList[i].title}</td><td class="body-item mbr-fonts-style display-7">${dataList[i].author}</td><td class="body-item mbr-fonts-style display-7"><a href="javascript:void(0)" class="download">下载</a></td></tr>`;
 		}
 		
 		list.innerHTML = str;
@@ -88,7 +92,7 @@ $(document).ready(function(){
 		var len = charge.length;
 		for(;i < len; i++) {
 			(function(i){
-				charge[i].onclick = function(){
+				charge[i].onclick = function() {
 					if(sessionStorage.username == null || sessionStorage.username.length <= 0) {
 						alert("请先登录！");
 						return false;

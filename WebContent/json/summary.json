@@ -1,9 +1,9 @@
 [{
 	"name" : "李四",
 	"degree" : "北京大学教授",
-	"research" : "软件",
-	"introduce" : "软件",
-	"achieve" : "软件",
-	"contact" : "qq邮箱",
+	"research" : "软件工程",
+	"introduce" : "软件工程",
+	"achieve" : "软件工程",
+	"contact" : "1325286933@qq.com",
 	"pic" : "images/demo.jpg"
 }]

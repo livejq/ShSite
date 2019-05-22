@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2019-05-19 15:43:40
+-- Generation Time: 2019-05-22 03:33:06
 -- 服务器版本： 5.7.21
 -- PHP Version: 5.6.35
 
@@ -56,6 +56,7 @@ DROP TABLE IF EXISTS `tb_resource`;
 CREATE TABLE IF NOT EXISTS `tb_resource` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `author` varchar(150) NOT NULL,
   `url` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
@@ -65,9 +66,55 @@ CREATE TABLE IF NOT EXISTS `tb_resource` (
 -- 转存表中的数据 `tb_resource`
 --
 
-INSERT INTO `tb_resource` (`id`, `title`, `author`, `url`) VALUES
-(1, '跟我学Spring系列', '开涛', 'download/get?filename=跟我学Spring系列.pdf'),
-(2, 'JavaScript核心概念及实践', '邱俊涛', 'download/get?filename=JavaScript核心概念及实践.pdf');
+INSERT INTO `tb_resource` (`id`, `title`, `date`, `author`, `url`) VALUES
+(1, '跟我学Spring系列', '2019-05-22 03:08:03', '开涛', 'download/get?filename=跟我学Spring系列.pdf'),
+(2, 'JavaScript核心概念及实践', '2019-05-22 03:08:03', '邱俊涛', 'download/get?filename=JavaScript核心概念及实践.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `tb_teacher`
+--
+
+DROP TABLE IF EXISTS `tb_teacher`;
+CREATE TABLE IF NOT EXISTS `tb_teacher` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `degree` varchar(150) NOT NULL,
+  `research` varchar(150) NOT NULL,
+  `introduce` varchar(200) DEFAULT '暂无',
+  `achieve` varchar(200) DEFAULT '暂无',
+  `contact` varchar(100) DEFAULT '暂无',
+  `pic` varchar(300) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `tb_teacher`
+--
+
+INSERT INTO `tb_teacher` (`id`, `name`, `degree`, `research`, `introduce`, `achieve`, `contact`, `pic`) VALUES
+(1, '测试', 'sdf', 'xx', 'sdf', 'sdf', 'sdf', 'images/dandelion-445228_1920.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `tb_theme`
+--
+
+DROP TABLE IF EXISTS `tb_theme`;
+CREATE TABLE IF NOT EXISTS `tb_theme` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `tb_theme`
+--
+
+INSERT INTO `tb_theme` (`id`, `content`) VALUES
+(1, '软件工程是一门研究用工程化方法构建和维护有效的、实用的和高质量的软件的学科。它涉及程序设计语言、数据库、软件开发工具、系统平台、标准、设计模式等方面。在现代社会中，软件应用于多个方面。典型的软件有电子邮件、嵌入式系统、人机界面、办公套件、操作系统、编译器、数据库、游戏等。同时，各个行业几乎都有计算机软件的应用，如工业、农业、银行、航空、政府部门等。这些应用促进了经济和社会的发展，也提高了工作效率和生活效率 。');
 
 -- --------------------------------------------------------
 
@@ -82,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
   `password` varchar(100) NOT NULL,
   `auth` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `tb_user`
@@ -90,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
 
 INSERT INTO `tb_user` (`id`, `username`, `password`, `auth`) VALUES
 (1, 'livejq', '2b0089f4662669389c61c8e3b6214efb1c8494fe', 1),
-(58, 'guest', '7c4a8d09ca3762af61e59520943dc26494f8941b', 0);
+(59, 'guest', '7c4a8d09ca3762af61e59520943dc26494f8941b', 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

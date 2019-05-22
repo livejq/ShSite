@@ -1,6 +1,7 @@
 window.onload = function() {
 	var btn_login = document.getElementById('btn_login');
 	var username = document.getElementById('username');
+	username.focus();
 	var password = document.getElementById('password');
 	var sign = document.getElementById('sign');
 	sign.innerHTML = sessionStorage.username ? sessionStorage.username : '请登录';
@@ -44,7 +45,8 @@ function doLogin() {
 						    var t = 2;
 						    var point = '. ';
 						    var buffer = new StringBuffer();
-						    if(value.status == null) {
+						    console.log(value.token);
+						    if(value.token == null) {
 						    	sessionStorage.username = value.username;
 								sign.innerHTML = value.username;
 							    var timer = setInterval(function (){

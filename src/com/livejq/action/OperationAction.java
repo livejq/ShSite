@@ -59,6 +59,10 @@ public class OperationAction extends ActionSupport {
 		this.id = id;
 	}
 
+	/**
+	 * 管理员异步删除用户
+	 * @return
+	 */
 	public String delete() {
 		
 		Session session = HibernateUtils.getSession();
@@ -66,6 +70,7 @@ public class OperationAction extends ActionSupport {
 		User user = (User) session.get(User.class, id);
 		session.delete(user);
 		t.commit();
+		session.close();
 		
 		String msg = "删除成功！";
 		inputStream = new ByteArrayInputStream(msg.getBytes());
@@ -73,6 +78,10 @@ public class OperationAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 管理员异步添加用户（用户包括管理员）
+	 * @return
+	 */
 	public String put() {
 	
 		Session session = HibernateUtils.getSession();
@@ -90,6 +99,7 @@ public class OperationAction extends ActionSupport {
 		user.setAuth(auth);
 		session.save(user);
 		t.commit();
+		session.close();
 		
 		String msg = "添加成功！";
 		inputStream = new ByteArrayInputStream(msg.getBytes());

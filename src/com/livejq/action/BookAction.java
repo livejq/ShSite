@@ -24,6 +24,11 @@ public class BookAction extends ActionSupport {
 		this.inputStream = inputStream;
 	}
 
+	/**
+	 * 客户端点击参考图书页面时先发送同步请求查询数据库中的图书信息，然后封装成xml数据
+	 * 格式并响应客户端，然后客户端通过js解析xml数据，最后显示在页面上
+	 * @return
+	 */
 	public String get() {
 		StringBuilder xml = new StringBuilder();
 		Session session = HibernateUtils.getSession();

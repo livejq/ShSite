@@ -46,7 +46,11 @@ public class RegisterAction extends ActionSupport {
 		this.password = password;
 	}
 
-
+	/**
+	 * 响应客户端发送的异步请求，当客户端输入完用户名时就发送信息确认是否存在该用户，
+	 * 若存在则从返回的信息中取出提示信息，否则不给出提示；点击注册时则可知不存在的用户名，而且密码不为空，即继续进行存储（对密码进行简单sha1
+	 * 加密后存入数据库中，然后返回客户端显示注册成功的提示）
+	 */
 	public String execute(){
 		
 		Session session = HibernateUtils.getSession();

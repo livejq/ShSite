@@ -3,6 +3,7 @@
   <display-name>ssh_demo</display-name>
   <welcome-file-list>
 	  <!-- <welcome-file>admin/index.jsp</welcome-file> -->
+	  <welcome-file>splash.html</welcome-file>
 	  <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   <filter>

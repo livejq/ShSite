@@ -4,15 +4,12 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>  
       <!-- 标识一个类的xml映射,name为类名,table为表名 -->  
-	<class name="com.livejq.domain.Resource" table="tb_resource">  
+	<class name="com.livejq.domain.Theme" table="tb_theme">  
           <!-- 主键的设置,generator标识主键生成方式,因为native便于数据库的移植 -->  
     	<id name="id" column="id" type="int"> 
         	<generator class="native"/>  
         </id> 
         <!-- 这里配了该类一个属性街道名称 name属性字段,column,数据库对应列 -->
-        <property name="title" column="title" type="string"/>
-        <property name="date" column="date" type="timestamp"/>
-        <property name="author" column="author" type="string"/>
-        <property name="url" column="url" type="string"/>
+        <property name="content" column="content" type="string"/>
      </class>
 </hibernate-mapping>
