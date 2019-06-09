@@ -7,12 +7,35 @@ window.onload = function() {
 	sign.innerHTML = sessionStorage.username ? sessionStorage.username : '请登录';
 	btn_login.onclick = doLogin;
 
-	$("#password").keydown(function(e){ 
+	$("#password").keydown(function(e) {
 		if (e.which == 13) {
 			doLogin();
 		}
 	});
 }
+
+$(document).ready(function(){
+	var themeTxt = document.getElementById('theme-txt');
+	$.ajax({
+		async : true,// 默认为true异步, jquery.min.js中已经抛弃了false这个值，原因是严重影响用户体验
+		type : "get",
+		url : "/ssh_demo/init/get",
+		success : function(data) {
+			if(data.content == null) {
+				$.get("json/theme.json", function(d) {
+					themeTxt.innerHTML = d.content;
+				});
+			}else {
+				themeTxt.innerHTML = data.content;
+			}
+		},
+		error : function(data) {
+			$.get("json/theme.json", function(d) {
+				themeTxt.innerHTML = d.content;
+			});
+		}
+	})
+})
 
 function doLogin() {
 		

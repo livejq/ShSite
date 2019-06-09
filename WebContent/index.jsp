@@ -74,7 +74,6 @@
                 <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">
                     课程介绍</h1>
                 <p class="mbr-text pb-3 mbr-fonts-style display-5" style="text-indent:2em;text-align:left" id="theme-txt">
-                <s:property value="content"/>
 				</p>
             </div>
             <div class="col-lg-4 col-md-5">

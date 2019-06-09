@@ -4,11 +4,9 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="init" namespace="/" extends="struts-default">
-	    <action name="splash" class="com.livejq.action.InitialAction">
-		    <result>
-				<param name="location">/index.jsp</param>
-            </result>
+    <package name="init" namespace="/init" extends="json-default">
+	    <action name="*" class="com.livejq.action.InitialAction" method="{1}">
+		    <result type="json"/>
 	    </action>
     </package>
     

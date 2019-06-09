@@ -17,7 +17,7 @@
   <div id="header">
 		<img src="images/logo-livejq.png" alt="软件工程"/>
 		<span><s:property value="username"/></span>
-		<a href="#">退出系统</a>
+		<a href="javascript:void(0)" id="exit">退出系统</a>
   </div>
   <div id="float-aside">
 		<aside>

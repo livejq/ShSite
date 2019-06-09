@@ -34,6 +34,13 @@ window.onload = function() {
     /*点击展示信息*/
     showTab();
     
+    /*退出登录*/
+    var exitEvent = document.getElementById('exit');
+    exitEvent.onclick = function() {
+    	document.cookie = null;
+    	document.location.href = "../index.jsp";
+    }
+    
     /*确认添加用户*/
     var addUserConfirm = document.getElementById('add-user-confirm');
     addUserConfirm.onclick = function() {
@@ -115,8 +122,6 @@ window.onload = function() {
 			url : "/ssh_demo/theme/modify?txt=" + txt,
 			success : function(data) {
 				alert(data);
-				textareaIndex.value = '';
-				textareaIndex.focus();
 			},
 			error : function(data) {
 				alert('请检查网络连接！');

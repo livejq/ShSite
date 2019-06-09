@@ -29,13 +29,11 @@ public class InitialAction extends ActionSupport {
 	/**
 	 * 先判断数据库中是否有content首页的主题说明内容，
 	 * 若无，则直接读取目录下的theme.txt文件中的默认数据
+	 * 
+	 * 以下纯为解析目录下的txt文件的练习，为了更好的体验，还是用ajax
 	 */
 	public String execute() {
-//		String root = System.getProperty("user.dir");
-//		String FileName="1.txt";
-//		String filePath = root+File.separator+"experiment"+File.separator+FileName;
-//		System.out.println(root);
-//		System.out.println(filePath);
+
 		Session session = HibernateUtils.getSession();
 		Theme theme = (Theme)session.get(Theme.class, 1);
 		session.close();
@@ -63,6 +61,15 @@ public class InitialAction extends ActionSupport {
 			content = sb.toString();
 		}
 		
+		return SUCCESS;
+	}
+	
+	public String get() {
+		Session session = HibernateUtils.getSession();
+		Theme theme = (Theme)session.get(Theme.class, 1);
+		session.close();
+		content = theme.getContent();
+			
 		return SUCCESS;
 	}
 }
