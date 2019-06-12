@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## 基于 Struts 2.x 和 Hibernate 3.x 编写的一个Demo
 
 #### 前台
@@ -34,3 +35,7 @@
 ![后台图书页面](images/admin_book.png "后台图书页面")
 
 ![后台资源页面](images/admin_resources.png "后台资源页面")
+=======
+# ssh_demo
+This is my first ssh framework demo
+>>>>>>> 9e39b8c7e58242913950f288d66e46951f54040d
